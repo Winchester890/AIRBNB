@@ -42,8 +42,8 @@ public abstract class Propriedade {
         this.localizacao = localizacao;
     }
 
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public void setCapacidade() {
+        this.capacidade -= 1;
     }
 
     public void setPreco(double preco) {
