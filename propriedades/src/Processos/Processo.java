@@ -61,6 +61,7 @@ public class Processo {
     public void reservar(Usuario usuario, Reserva reserva) {
         custo = reserva.getPropriedade().getPreco() * reserva.getNoites();
         usuario.addReserva(reserva);
+        reserva.getPropriedade().setCapacidade();
         System.out.println("Reserva realizada, Sr(a) " + usuario.getNome() + "!");
         System.out.println("Custo total: R$" + custo);
         pagar.pagar(usuario);
