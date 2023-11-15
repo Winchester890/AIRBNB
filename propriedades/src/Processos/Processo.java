@@ -5,12 +5,18 @@ import Usuario.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Processo {
     private List<Propriedade> propriedadeList = new ArrayList<>();
     private List<Usuario> usuarioList = new ArrayList<>();
     private double custo;
     private Pagar pagar;
+    private List<Avaliacao> avaliacaoList = new ArrayList<>();
+
+    public List<Avaliacao> getAvaliacaoList() {
+        return avaliacaoList;
+    }
 
     public double getCusto() {
         return custo;
@@ -49,10 +55,13 @@ public class Processo {
         System.out.println("Usuário com o nome " + nome + " não encontrado!");
         return null;
     }
+    public void addAvaliacao(Avaliacao avaliacao) {
+        avaliacaoList.add(avaliacao);
+    }
     public void avaliar(Avaliacao avaliacao) {
         if (avaliacao.getNota() <= 5 && avaliacao.getNota() >= 1) {
             System.out.println("Agradecemos pela sua avaliação para a propriedade " + avaliacao.getPropriedade().getTitulo() + ", Sr(a) " + avaliacao.getUsuario().getNome() + "!");
-            avaliacao.getUsuario().addAvaliacao(avaliacao);
+            addAvaliacao(avaliacao);
             avaliacao.getPropriedade().setAvaliacoes();
         } else {
             System.out.println("Só são permitidas notas entre 1 e 5!");
@@ -65,6 +74,15 @@ public class Processo {
         System.out.println("Reserva realizada, Sr(a) " + usuario.getNome() + "!");
         System.out.println("Custo total: R$" + custo);
         pagar.pagar(usuario);
+    }
+
+    public List<Avaliacao> findByTitulo(String titulo) {
+        if (avaliacaoList != null) {
+            return avaliacaoList.stream()
+                    .filter(avaliacao -> avaliacao.getPropriedade().getTitulo().contains(titulo))
+                    .collect(Collectors.toList());
+        }
+        return avaliacaoList;
     }
 
 }
