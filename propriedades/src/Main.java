@@ -21,10 +21,6 @@ public class Main {
         Usuario usuario2 = new Usuario("Luiz", "luiz@gmail.com", "4321");
         processo.addUsuario(usuario1);
         processo.addUsuario(usuario2);
-        Reserva reserva1 = new Reserva(5, casa1);
-        usuario1.addReserva(reserva1);
-        Reserva reserva2 = new Reserva(4, apartamento1);
-        usuario2.addReserva(reserva2);
 
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
@@ -141,11 +137,12 @@ public class Main {
                 }
                 break;
             case 4:
-                List<Usuario> users = processo.getUsuarioList();
-                for (Usuario usuario : users) {
-                    System.out.println(usuario.getAvaliacaoList());
-                }
-
+                System.out.print("Digite o titulo da propriedade a ser mostrada as avaliações: ");
+                String ti = scanner.next();
+                List<Avaliacao> avaliacaos = processo.getAvaliacaoList();
+                avaliacaos = processo.findByTitulo(ti);
+                System.out.println(avaliacaos);
+                break;
             case 5:
                 System.out.print("Informe o nome: ");
                 String nome = scanner.next();
