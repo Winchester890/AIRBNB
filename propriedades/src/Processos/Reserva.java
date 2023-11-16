@@ -3,7 +3,6 @@ package Processos;
 import Propriedades.Propriedade;
 
 public class Reserva {
-    private Processo processo;
     private int noites;
     private Propriedade propriedade;
 
