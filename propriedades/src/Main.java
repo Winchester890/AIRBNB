@@ -186,6 +186,9 @@ public class Main {
                 Avaliacao avaliacao1 = new Avaliacao(propri, usu, nota, comentario);
                 processo.avaliar(avaliacao1);
                 break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
         }
     }
 }
