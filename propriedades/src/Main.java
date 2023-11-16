@@ -127,21 +127,29 @@ public class Main {
                     System.out.println("Preço por noite: " + propriedade.getPreco());
                     System.out.println("Proprietário: " + propriedade.getProprietario());
                     System.out.println("Número de avaliações recebidas: " + propriedade.getAvaliacoes());
+                    System.out.println("------------------------------------");
                 }
                 break;
             case 3:
-                List<Usuario> usuarios = processo.getUsuarioList();
+                List<Reserva> reservaList = processo.getReservas();
                 System.out.println("Propriedades reservadas: ");
-                for (Usuario usuario : usuarios) {
-                    System.out.println(usuario.getReservas());
+                for (Reserva reserva : reservaList) {
+                    System.out.println("Noites reservadas: " + reserva.getNoites());
+                    System.out.println("Propriedade: " + reserva.getPropriedade().getTitulo());
+                    System.out.println("------------------------------------");
                 }
                 break;
             case 4:
                 System.out.print("Digite o titulo da propriedade a ser mostrada as avaliações: ");
                 String ti = scanner.next();
-                List<Avaliacao> avaliacaos = processo.getAvaliacaoList();
-                avaliacaos = processo.findByTitulo(ti);
-                System.out.println(avaliacaos);
+                List<Avaliacao> avaliacaos = processo.findByTitulo(ti);
+                for (Avaliacao avaliacao : avaliacaos) {
+                    System.out.println("Propriedade: " + avaliacao.getPropriedade().getTitulo());
+                    System.out.println("Usuário que avaliou: " + avaliacao.getUsuario().getNome());
+                    System.out.println("Nota: " + avaliacao.getNota());
+                    System.out.println("Comentário: " + avaliacao.getComentario());
+                    System.out.println("------------------------------------");
+                }
                 break;
             case 5:
                 System.out.print("Informe o nome: ");
