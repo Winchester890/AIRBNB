@@ -1,7 +1,6 @@
 package Processos;
 
 import Propriedades.Propriedade;
-import Usuario.Usuario;
 
 public class Reserva {
     private Processo processo;
