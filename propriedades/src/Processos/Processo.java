@@ -13,9 +13,13 @@ public class Processo {
     private double custo;
     private Pagar pagar;
     private List<Avaliacao> avaliacaoList = new ArrayList<>();
+    private List<Reserva> reservas = new ArrayList<>();
 
     public List<Avaliacao> getAvaliacaoList() {
         return avaliacaoList;
+    }
+    public List<Reserva> getReservas() {
+        return reservas;
     }
 
     public double getCusto() {
@@ -58,6 +62,9 @@ public class Processo {
     public void addAvaliacao(Avaliacao avaliacao) {
         avaliacaoList.add(avaliacao);
     }
+    public void addReserva(Reserva reserva) {
+        reservas.add(reserva);
+    }
     public void avaliar(Avaliacao avaliacao) {
         if (avaliacao.getNota() <= 5 && avaliacao.getNota() >= 1) {
             System.out.println("Agradecemos pela sua avaliação para a propriedade " + avaliacao.getPropriedade().getTitulo() + ", Sr(a) " + avaliacao.getUsuario().getNome() + "!");
@@ -69,7 +76,7 @@ public class Processo {
     }
     public void reservar(Usuario usuario, Reserva reserva) {
         custo = reserva.getPropriedade().getPreco() * reserva.getNoites();
-        usuario.addReserva(reserva);
+        addReserva(reserva);
         reserva.getPropriedade().setCapacidade();
         System.out.println("Reserva realizada, Sr(a) " + usuario.getNome() + "!");
         System.out.println("Custo total: R$" + custo);
