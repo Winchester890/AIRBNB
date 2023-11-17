@@ -187,7 +187,7 @@ public class Main {
                 String title = scanner.next();
                 System.out.print("Informe o usuário que irá avaliar pelo nome: ");
                 String nomi = scanner.next();
-                System.out.print("Qual sua nota de avaliação? (1 - 5)");
+                System.out.print("Qual sua nota de avaliação? (1 - 5) ");
                 int nota = Integer.parseInt(scanner.next());
                 System.out.print("Deixe um comentário: ");
                 String comentario = scanner.next();
