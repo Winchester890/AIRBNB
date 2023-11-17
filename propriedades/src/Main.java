@@ -198,6 +198,9 @@ public class Main {
                 Avaliacao avaliacao1 = new Avaliacao(propri, usu, nota, comentario);
                 processo.avaliar(avaliacao1);
                 break;
+            case 0:
+                System.out.println("Encerrando...");
+                break;
             default:
                 System.out.println("Opção inválida!");
                 break;
