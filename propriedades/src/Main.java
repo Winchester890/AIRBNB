@@ -21,6 +21,10 @@ public class Main {
         Usuario usuario2 = new Usuario("Luiz", "luiz@gmail.com", "4321");
         processo.addUsuario(usuario1);
         processo.addUsuario(usuario2);
+        Reserva reserva1 = new Reserva(5, casa1);
+        Reserva reserva2 = new Reserva(3, apartamento1);
+        processo.addReserva(reserva1);
+        processo.addReserva(reserva2);
 
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
